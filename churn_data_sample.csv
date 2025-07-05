@@ -1,0 +1,4 @@
+CustomerID,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+1001,Male,34,5,50000.0,2,1,1,70000.0,0
+1002,Female,45,2,60000.0,1,0,1,80000.0,1
+1003,Female,23,1,30000.0,1,1,0,30000.0,0
