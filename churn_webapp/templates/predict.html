@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/predict" method="post">
+
+    <label>Tenure:</label>
+    <input type="number" name="Tenure" step="1" required>
+
+    <label>Preferred Login Device:</label>
+    <select name="PreferredLoginDevice" required>
+        <option value="Mobile Phone">Mobile Phone</option>
+        <option value="Computer">Computer</option>
+        <option value="Phone">Phone</option>
+    </select>
+
+    <label>City Tier:</label>
+    <select name="CityTier" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+    <label>Warehouse To Home:</label>
+    <input type="number" name="WarehouseToHome" step="1" required>
+
+    <label>Preferred Payment Mode:</label>
+    <select name="PreferredPaymentMode" required>
+        <option value="Credit Card">Credit Card</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="UPI">UPI</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="Net Banking">Net Banking</option>
+    </select>
+
+    <label>Gender:</label>
+    <select name="Gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+
+    <label>Hour Spent On App:</label>
+    <input type="number" name="HourSpendOnApp" step="0.1" required>
+
+    <label>Number of Devices Registered:</label>
+    <input type="number" name="NumberOfDeviceRegistered" value="1" step="1">
+
+    <label>Preferred Order Category:</label>
+    <select name="PreferedOrderCat" required>
+        <option value="Laptop & Accessory">Laptop & Accessory</option>
+        <option value="Mobile Phone">Mobile Phone</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Others">Others</option>
+    </select>
+
+    <label>Satisfaction Score:</label>
+    <input type="number" name="SatisfactionScore" min="1" max="5" required>
+
+    <label>Marital Status:</label>
+    <select name="MaritalStatus">
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Divorced">Divorced</option>
+    </select>
+
+    <label>Number of Addresses:</label>
+    <input type="number" name="NumberOfAddress" value="1" step="1">
+
+    <label>Complain:</label>
+    <select name="Complain">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select>
+
+    <label>Order Amount Hike From Last Year:</label>
+    <input type="number" name="OrderAmountHikeFromlastYear" step="0.01" required>
+
+    <label>Coupon Used:</label>
+    <input type="number" name="CouponUsed" step="1" required>
+
+    <label>Order Count:</label>
+    <input type="number" name="OrderCount" step="1" required>
+
+    <label>Days Since Last Order:</label>
+    <input type="number" name="DaySinceLastOrder" step="1" required>
+
+    <label>Cashback Amount:</label>
+    <input type="number" name="CashbackAmount" value="0" step="1">
+
+    <button type="submit">Predict</button>
+</form>
+
+{% if log_pred is not none %}
+    <div class="result" style="margin-top: 30px;">
+        <h3>Prediction Results</h3>
+        <p><strong>Logistic Regression:</strong> {{ log_pred }}</p>
+        <p><strong>Random Forest:</strong> {{ rf_pred }}</p>
+        <p><strong>XGBoost:</strong> {{ xgb_pred }}</p>
+    </div>
+{% endif %}
+{% endblock %}
