@@ -1,5 +1,5 @@
-python=3.10
 matplotlib
+ipykernel
 numpy
 pandas
 scikit-learn
